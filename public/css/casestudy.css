@@ -1,0 +1,126 @@
+body {
+  background-color: rgb(255,255,255);background-color: rgba(255,255,255,1);}
+
+  #mobile-menu,
+  #mobile-menu ul {
+    background-color: rgb(255,255,255);background-color: rgba(255,255,255,1);}
+
+    #mobile-menu li{
+      border-bottom-color: #efefef ;
+    }
+
+
+
+    #header .header-border{
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+
+
+
+    #footer {
+      background-color: rgb(0,0,0);background-color: rgba(0,0,0,1);}
+      #footer .footer-border{
+        border-bottom:  none ;
+      }
+
+      /* ======================
+      Typography
+      ====================== */
+      body,
+      .special-heading-wrap .caption-wrap .body-font {
+        font:  300 16px "Roboto","Open Sans","Arial",sans-serif;
+        color: #606060;
+        line-height: 30px;
+        letter-spacing: 0px;
+        text-transform: none;    -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      #navigation,
+      .style2 #navigation,
+      #navigation-left-side,
+      #navigation-right-side,
+      .header-cart-controls .cart-contents,
+      .sb-left  #slidebar-menu,
+      #header-controls-right,
+      #header-controls-left,
+      body #header-inner-wrap.top-animate.style2 #navigation,
+      .top-overlay-menu .sb-right  #slidebar-menu {
+        font:  400 14px "Roboto","Open Sans","Arial",sans-serif;
+        color: #232323;
+        line-height: 51px;
+        letter-spacing: 2px;
+        text-transform: uppercase;}
+
+        #header .be-mobile-menu-icon,
+        #header .be-mobile-menu-icon::before,
+        #header .be-mobile-menu-icon::after{
+          background-color: #232323}
+          .exclusive-mobile-bg .menu-controls{
+            background-color: background-color: rgb(20,20,20);background-color: rgba(20,20,20,1);;
+          }
+          #header .exclusive-mobile-bg .menu-controls .be-mobile-menu-icon,
+          #header .exclusive-mobile-bg .menu-controls .be-mobile-menu-icon::before,
+          #header .exclusive-mobile-bg .menu-controls .be-mobile-menu-icon::after{
+            background-color: #ffffff}
+            .be-mobile-menu-icon{
+              width: 24px;
+              height: 2px;
+            }
+            .be-mobile-menu-icon::before{
+              top: -7px;
+            }
+            .be-mobile-menu-icon::after{
+              top: 7px;
+            }
+            ul#mobile-menu a {
+              font:  400 12px "Roboto","Open Sans","Arial",sans-serif;
+              color: #232323;
+              line-height: 40px;
+              letter-spacing: 1px;
+              text-transform: uppercase;}
+
+
+              #navigation .current_page_item a,
+              #navigation .current_page_item a:hover,
+              #navigation a:hover,
+              #navigation-left-side .current_page_item a,
+              #navigation-left-side .current_page_item a:hover,
+              #navigation-left-side a:hover,
+              #navigation-right-side .current_page_item a,
+              #navigation-right-side .current_page_item a:hover,
+              #navigation-right-side a:hover {
+                color: #41e2ad;
+              }
+
+              .be-nav-link-effect-1 a::after,
+              .be-nav-link-effect-2 a::after,
+              .be-nav-link-effect-3 a::after{
+                background-color: rgb(65,226,173);background-color: rgba(65,226,173,1);}
+                .current-menu-item a {
+                  color: #41e2ad;
+                }
+
+
+                .style1 .logo,
+                .style4 .logo,
+                #left-header-mobile .logo,
+                .style3 .logo{
+                  padding-top: 30px;
+                  padding-bottom: 30px;
+                }
+
+                .style1 #navigation,
+                .style3 #navigation,
+                .style5 #navigation,
+                #header-controls-left,
+                #header-controls-right,
+                #header-wrap,
+                .mobile-nav-controller-wrap,
+                #left-header-mobile .header-cart-controls,
+                .style6 #navigation-left-side,
+                .style6 #navigation-right-side{
+                  line-height: 100px;
+                }
+                
