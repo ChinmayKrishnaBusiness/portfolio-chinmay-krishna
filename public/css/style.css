@@ -5092,13 +5092,7 @@ body.admin-bar .fixed-sidebar-page #right-sidebar.active-fixed .fixed-sidebar-co
         margin: 0 auto
     }
 }
-@font-face {
-    font-family: 'icomoon';
-    src: url('http://oshine.brandexponentscr.netdna-cdn.com/oshin/wp-content/themes/oshin/fonts/icomoon/fonts/icomoon.eot?85pf5i');
-    src: url('http://oshine.brandexponentscr.netdna-cdn.com/oshin/wp-content/themes/oshin/fonts/icomoon/fonts/icomoon.eot?#iefix85pf5i') format('embedded-opentype'), url('http://oshine.brandexponentscr.netdna-cdn.com/oshin/wp-content/themes/oshin/fonts/icomoon/fonts/icomoon.woff?85pf5i') format('woff'), url('http://oshine.brandexponentscr.netdna-cdn.com/oshin/wp-content/themes/oshin/fonts/icomoon/fonts/icomoon.ttf?85pf5i') format('truetype'), url('http://oshine.brandexponentscr.netdna-cdn.com/oshin/wp-content/themes/oshin/fonts/icomoon/fonts/icomoon.svg?85pf5i#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal
-}
+
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
     font-family: 'icomoon' !important;
