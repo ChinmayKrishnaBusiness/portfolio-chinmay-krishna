@@ -2,21 +2,6 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
       <title>1mg payments revamp</title>
-		  <!-- Hotjar Tracking Code for http://chinmaykrishna.com -->
-		  <script>
-		  (function(h,o,t,j,a,r){
-		    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-		    h._hjSettings={hjid:1345736,hjsv:6};
-		    a=o.getElementsByTagName('head')[0];
-		    r=o.createElement('script');r.async=1;
-		    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-		    a.appendChild(r);
-		  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-		  </script>
-
-
-
-
       <style>
          /* webkit printing magic: print all background colors */
          html {
@@ -313,7 +298,6 @@
          p {
          margin-top: 0.5em;
          margin-bottom: 0.5em;
-         white-space: pre-line;
          }
          .image {
          border: none;
@@ -329,6 +313,7 @@
          padding: 0.2em 0.4em;
          border-radius: 3px;
          font-size: 85%;
+         tab-size: 2;
          }
          code {
          color: #eb5757;
@@ -518,7 +503,10 @@
                <div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#3409f6a3-366f-4276-9906-f1a1c28158fe">Wallet</a></div>
                <div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#278cacaa-873e-44c2-9415-b2f7e963e1e9">Cards</a></div>
                <div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#86f80e85-9063-4b89-9797-8afdeae40891">Desktop Web</a></div>
-               <div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f94e40ec-6416-4470-b2f9-1dbb65fcc132">User Testing</a></div>
+               <div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b06554fd-0c8a-4fad-ac29-4a2689909ad9">Wallet</a></div>
+               <div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#fd6deff3-e3cd-4342-9a4e-d13cc693faf0">Card</a></div>
+               <div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d008885d-06d5-46ad-96a2-270eca57be0c">Netbanking </a></div>
+               <div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5b29b41e-177d-415f-977e-e4bf955dbf83">User Testing</a></div>
                <div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2e26eb6b-6e42-4a77-aac5-9e0b62ce987d">Results</a></div>
             </nav>
             <h1 id="9c228d06-39fa-474a-b1e7-b86a05fd53a6" class="">How payment system changed in 1mg?</h1>
@@ -590,11 +578,43 @@
             <figure id="c91bf4ef-20cc-4a2d-97be-e6c266e22eff" class="image"><a href="1mg payments revamp/Cards.png"><img style="width:1642px" src="1mg payments revamp/Cards.png"/></a></figure>
             <p id="adb3d9ad-6869-49ce-b2cc-28dcbe65be8a" class="">Though in saved cards you have to enter CVV and OTP, and it is longer than 1 tap payment of linked wallet, it has less typing effort that not saved card.</p>
             <h2 id="86f80e85-9063-4b89-9797-8afdeae40891" class="">Desktop Web</h2>
-            <p id="7204789b-ea3b-4565-8e15-97dcd4e6b6c5" class="">To be added</p>
-            <h1 id="f94e40ec-6416-4470-b2f9-1dbb65fcc132" class="">User Testing</h1>
-            <p id="4ef13ae7-c9f7-4a0b-99b6-8240ee1447e3" class="">To be added</p>
+            <figure id="43bff0aa-7858-4c68-b6bf-0243b5aeefdb" class="image"><a href="1mg payments revamp/desktop_architecture.png"><img style="width:912px" src="1mg payments revamp/desktop_architecture.png"/></a></figure>
+            <p id="f94e40ec-6416-4470-b2f9-1dbb65fcc132" class="">For desktop web, with more space, we kept navigational pattern to go to the required payment mode. Through navigational pattern we achieve progressive disclosure to achieve easy decision making and selection.</p>
+            <h3 id="b06554fd-0c8a-4fad-ac29-4a2689909ad9" class="">Wallet</h3>
+            <figure id="6effdb95-2e05-456f-ad68-e8810690e90d" class="image"><a href="1mg payments revamp/insufficient_wallet_desktop.png"><img style="width:2850px" src="1mg payments revamp/insufficient_wallet_desktop.png"/></a></figure>
+            <p id="89213ccc-c487-40c4-8a85-ea650eef098e" class="">Insufficient wallet money case</p>
+            <h3 id="fd6deff3-e3cd-4342-9a4e-d13cc693faf0" class="">Card</h3>
+            <figure id="f09b6076-dfa3-4af7-9980-014f56977157" class="image"><a href="1mg payments revamp/card_desktop.png"><img style="width:2850px" src="1mg payments revamp/card_desktop.png"/></a></figure>
+            <p id="d566a549-904a-4725-8629-503340845d84" class="">No saved card case</p>
+            <h3 id="d008885d-06d5-46ad-96a2-270eca57be0c" class="">Netbanking </h3>
+            <figure id="73ea3b3d-a92f-44f1-99d2-c8e87042f1c2" class="image"><a href="1mg payments revamp/Screenshot_2019-06-29_at_9.19.20_PM.png"><img style="width:2880px" src="1mg payments revamp/Screenshot_2019-06-29_at_9.19.20_PM.png"/></a></figure>
+            <p id="2f2cfa94-8edb-4c0d-a012-d63ee45a64a9" class="">When no method is selected, the CTA is inactive but shows what to do.</p>
+            <h1 id="5b29b41e-177d-415f-977e-e4bf955dbf83" class="">User Testing</h1>
+            <p id="4ef13ae7-c9f7-4a0b-99b6-8240ee1447e3" class="">We tested different UI variation for flow with users. For example, below shows the linking flow with modal popup and linking flow inplace.</p>
+            <figure id="ed122746-1c85-41a7-a444-9a2ec9eb08d5">
+               <div>
+								 <iframe width="560" height="315" src="https://www.youtube.com/embed/dG8jL0c0M2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								 </div>
+               <figcaption>Variation 1 - Linking through modal</figcaption>
+            </figure>
+            <figure id="ad1c15ee-c33c-48de-a907-6993d57ee7c6">
+               <div >
+								 <iframe width="560" height="315" src="https://www.youtube.com/embed/XrKhFPWetCE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							 </div>
+               <figcaption>Variation 2 - Linking inplace</figcaption>
+            </figure>
+            <ul id="1f0f72ef-ceca-4145-a50c-24730d78d375" class="bulleted-list">
+               <li>People liked the inplace better than modal. Though as observed by me both were equally easy.</li>
+            </ul>
+            <ul id="7a248124-f746-4f4e-9158-9618ef743ee7" class="bulleted-list">
+               <li>Finding where card was written was easier in 2nd variation. Its below in 1st.</li>
+            </ul>
+            <ul id="82e5b905-a777-408d-9d04-d417128cc5e0" class="bulleted-list">
+               <li>Variation 2 UI organization was easy for users than variation 1 UI organization.</li>
+            </ul>
+            <p id="6ac586ac-f7f0-4736-9d43-b09c5ead4b09" class="">We did many other tests like these and finished the solution with clarity and confidence.</p>
             <h1 id="2e26eb6b-6e42-4a77-aac5-9e0b62ce987d" class="">Results</h1>
-            <blockquote id="b557ac00-5d03-4960-ab0d-4abdbcec4fcb" class="">Success rate of payment increased by 20%</blockquote>
+            <blockquote id="b557ac00-5d03-4960-ab0d-4abdbcec4fcb" class=""><strong>Success rate of payment increased by 20%</strong></blockquote>
             <blockquote id="c69b889b-0208-4900-bb79-96055e6cd36e" class="">At payment step users feel like, he/she is in 1mg only</blockquote>
             <blockquote id="5a9b1958-ae7b-4d86-af59-e0dcec1df31d" class="">A smaller funnel for purchase</blockquote>
          </div>
