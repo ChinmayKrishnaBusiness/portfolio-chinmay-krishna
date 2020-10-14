@@ -1,0 +1,631 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>How Usability Testing Culture was introduced in a non- existent testing culture and with an introvert design team?</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+</style></head><body>
+		<article id="86426c83-21a2-452b-b4c2-210c31bce64e" class="page sans"><header><h1 class="page-title">How Usability Testing Culture was introduced in a non- existent testing culture and with an introvert design team?</h1></header><div class="page-body"><p id="88532d15-6347-44c7-9841-516324be7e72" class="">
+	</p><nav id="2f3617f6-0253-463b-94b4-16abe8720637" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9d61bc9a-5168-4b2a-a297-f0ea1bb2e18a">The Wrong type of Confidence</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#eeb5083a-e0c3-4f83-902c-4bf4e2b83252">Small Beginnings</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f2465e76-944f-48b7-b32d-a006aa494861">Nice to know you</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#488b1eef-6682-4d7f-8605-42a3543567d3">Thankyou Corona</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7a75fe9d-5220-4097-aa52-9019dee66dec">The Breakthrough</a></div></nav><p id="3481ed5f-61b6-4ddb-b834-b708ba3d6266" class="">
+	</p><blockquote id="2f8ed047-67c4-415e-af65-ab3e7bb41d00" class="">Any cultural shift is not sudden. It takes policies, evangelisation, strategy and some luck to make it happen. Especially when you are not the policymaker. Also, you need to know about the dynamics of the team and have deep human understanding.</blockquote><p id="a35cf6ca-7940-423f-89ff-c967049ddef9" class="">
+	</p><p id="f9cf7485-7c83-4587-bd0e-aed43e6040c4" class=""><strong>My Role</strong> - Senior Product Designer. Mentoring designers but not managing them.</p><h1 id="9d61bc9a-5168-4b2a-a297-f0ea1bb2e18a" class="">The Wrong type of Confidence</h1><p id="37967991-4231-4e84-b75b-0cbe3aa28509" class="">When I joined helpshift, I saw feature designs were given for development without usability testing them. The designers were <strong>confident</strong> of their designs after they get it reviewed by the senior designers. They thought that senior designers have around 7-8 years of experience in the company so they would know what&#x27;s the best design for the user. But the fact was that senior designers were have also not interviewed users ever. Their knowledge was based on experience about what flows and component design works. Though it&#x27;s a good thing, this can lead to a strong opinion about the current system. Taking courage for innovation will be reduced by this.</p><iframe src="https://giphy.com/embed/MJXzUUQWe3L32" width="349" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cheezburger-what-rabbit-MJXzUUQWe3L32"></a></p><p id="e83e329a-2c31-409a-9ae5-b12ee0fc0059" class="">And junior designers will have to be dependent on senior designers to learn. We had to break away from this system.</p><h1 id="eeb5083a-e0c3-4f83-902c-4bf4e2b83252" class="">Small Beginnings</h1><p id="52c1bb0b-2057-4e43-abac-843e49b397ed" class="">I got my first project and it was an end-user (B2B2<strong>C</strong>) project whose range of persona was broad. It was not an agent or admin persona which is very specific. So, even if I did internal testing with employees it was ok (because they also interact with app&#x27;s help section often)</p><p id="f455a064-5e93-4050-b046-6993e95c971e" class="">So I completed my prototype on principal and went to do some guerilla testing with internal employees. Now, employees were not approached earlier to do this. But unlike normal user testing, where you would get rejection when approaching, it was not the case here. Everyone was eager to be recruited for testing. And we tested with them. Thus, many employees now knew that they can be approached for testing now.</p><p id="9bcedd14-6841-4d57-9cdb-646e9e14ed95" class="">Then I gave presentation of my findings to the design team. They appreciated it. I hoped that now other designers will start to do testing. But it did not happen. Why?</p><iframe src="https://giphy.com/embed/1YlqzxnnQwaGc" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/the-simpsons-scared-homer-simpson-1YlqzxnnQwaGc"></a></p><p id="abd659dd-41ff-4905-a9ee-f36ffc1e175a" class="">Because all of them were <strong>introverted</strong> and they would avoid any work where they have to initiate conversation and control/guide conversation, if they can.</p><p id="a5b0abae-d961-4b7d-8f5a-1016276572fc" class="">So this was a behaviour problem in team that need to be solved.</p><h1 id="f2465e76-944f-48b7-b32d-a006aa494861" class="">Nice to know you</h1><p id="535321ee-77ee-4abb-bfe0-2671719fc151" class="">I got the next projects where admin and agents were the personas whom I had to design for. I designed the prototype but how do I test with them? It was difficult to get <strong>access to customers </strong>was said by the seniors.</p><p id="22ee9572-947e-415d-86d0-78bc0a83aee2" class="">Actually, the Sales team and Customer Success team was mostly interacting with customers. Designers never talked to them. We have not even seen their working environment and context in which they were working. So, the first step was to get the first-hand experience of talking to them or just listening to them while accompanying the persons who generally talk to them. We needed to know the current way of working of theirs before we can do usability testing.</p><p id="7885bafc-a5ef-467f-b867-c678f8b564b2" class="">For knowing the current way of working, one of the options was to observe remotely and unmoderated. For this, we needed session recording tools like hotjar to embed in the dashboard. But the enterprise companies were not willing to agree to this because they did not want to share their data with these 3rd party tools due to concerns about security. So, this was not an option for us and we have to do moderated research sessions.</p><p id="3024ef62-44a4-46ad-8bf5-6bd280a13834" class="">So, I went to some of the customers office with some PMs to understand their way of working. There we <strong>interviewed both agents and admins</strong> and got fair amount of idea how they were working. We did this for other customer cohorts too to cover all .</p><figure id="f5bfb91f-69f6-4605-ae0f-7b09e8a7e778" class="image"><a href="How%20Usability%20Testing%20Culture%20was%20introduced%20in%20a%20%20f5bfb91f69f64605ae0f7b09e8a7e778/Artboard.png"><img style="width:2304px" src="How%20Usability%20Testing%20Culture%20was%20introduced%20in%20a%20%20f5bfb91f69f64605ae0f7b09e8a7e778/Artboard.png"/></a></figure><p id="38c791b8-5c6b-4bf4-a87f-d29a7b1cbc61" class="">I presented the findings to the team and some designers were inspired to do visits too. They went along with other persons. So, you see they can be fly on the wall but cannot be the conversation leader. For usability testing, you have to be vulnerable and leading. But for research along with partners, you are not so vulnerable.</p><p id="4f89ece4-6290-4d87-b9d8-f0dca2a9b12a" class="">Then our sales and customer success teams started using gong to record calls with customers. The product and design team got access to gong. Now we can see the customers problems.</p><p id="53fdc6fb-b8f6-4629-9d1c-9a6dec5674c1" class="">After this, designers also got on calls with PMs more as they now had good understanding of how the customer talks and their behaviour from gong calls. So, now we were more closer to customer and had access. But still we were not doing usability testing.</p><h1 id="488b1eef-6682-4d7f-8605-42a3543567d3" class="">Thankyou Corona</h1><p id="343908bd-863a-4006-84d9-75f5d77c75d4" class="">Since I was doing usability testing internally and covid pandemic hit us, the internal testers of mine also became remote.</p><p id="6458ce69-2a01-4a2e-911c-452038c4332d" class="">So, I pinged on slack that whoever are interested in being usability testing participants, I will make a group for them. And many people responded and were added in group.</p><figure id="7ccc9ddb-824b-481d-82e3-3c8d58a277bf" class="image"><a href="How%20Usability%20Testing%20Culture%20was%20introduced%20in%20a%20%20f5bfb91f69f64605ae0f7b09e8a7e778/Screenshot_2020-10-14_at_10.56.53_AM.png"><img style="width:576px" src="How%20Usability%20Testing%20Culture%20was%20introduced%20in%20a%20%20f5bfb91f69f64605ae0f7b09e8a7e778/Screenshot_2020-10-14_at_10.56.53_AM.png"/></a></figure><p id="36f4eb2f-f763-4b66-8600-38cdb4f01423" class="">I started to now do remote usability testing with them on zoom. I would handover the prototype link and they test. I screen recorded these sessions and posted it on design team channel. People now were able to see that how I talk and conduct my usability testing sessions. So, I progressed from sharing the results to sharing the actual way of doing testing sessions. This gave them more confidence to do.</p><p id="fe0b2566-50e1-470e-b4ca-ae2cbbf6e6c8" class="">So, another designer saw the whole process and conducted a remote usability testing session herself for the projects and she shared the recordings. Finally people started doing. One more designer did it and then one more and the wheels started moving.</p><p id="1ac56db7-ac48-4247-be39-03446f453d63" class="">They found really great insights from internal usability testing sessions. They understood how deep bias they had. They found new things which does not get uncovered while reviewing with other designers. And finally found the importance of usability testing.</p><h1 id="7a75fe9d-5220-4097-aa52-9019dee66dec" class="">The Breakthrough</h1><p id="dc8b37ea-099f-4581-ba30-33f416237d22" class="">Meanwhile, the new CPO/CMO was appointed in helpshift. She stressed on greater voice on the table for design. In one of my project, she said to me to do usability testing with customers remotely. We already knew how to do it remotely with employees. Now we have to extend it to customers.</p><p id="a9f76696-4952-40ba-92b5-4f4bbd1f79b8" class="">I was apprehensive of the fact that how the customer will react when given to do this stuff? Have they been previously part of these type of sessions. If yes, they would do it easily. If not, we have to really make them comfortable and guide them to finish it till end.</p><p id="98941ef2-36c0-42fb-b63c-79ca19010df1" class="">So, it was scheduled by CSM and we started with first customer. I had design manager with me also on the call. We gave them context about what we are doing and why we are doing it. We said, &quot;When we release the feature we don&#x27;t want that you get confused or take time figuring out how to accomplish some tasks. This will also be a practice session for you. Will you be interested?&quot; And everybody said yes. So the rejection rate while approaching participants in B2C is greater than B2B. In B2B, we have already created a relationship with customer. So, they have a greater goodwill.</p><p id="36f8643e-6729-4959-8f17-1caaacad4a09" class="">We started it. We gave them the prototype link. They opened it and shared it on zoom. And they went on through the task and finally completed it. And insights were captured. They were ok with being part of these sessions next time also.</p><p id="c154faa6-4cc3-451f-ad21-d33cb2230226" class="">Similarly, we did with many customers. </p><p id="e355feb9-f14b-4cc2-9a4e-1a0b432bf288" class="">Other designers also did these sessions with customers for their project. I will be thankful to Design manager that he was part of all the sessions with other designers too. This gave them confidence and backing to conduct it seamlessly.</p><p id="cd3f1794-b5f7-4110-a6a3-c35d1ae5fc31" class="">I was really happy to see what I started with has come to a fruitful end. </p><p id="f0b5ac93-f174-453c-88a8-188b4572c104" class="">From 0 to 1. </p><p id="e915aec6-dcd7-405b-b4d5-31da04cb49b6" class="">From introvert to extrovert. </p><p id="cc3cfb47-c439-4732-88e5-a98eade91f32" class="">From biased to unbiased.</p><p id="d63e201b-95b9-45ab-8725-d536cc1b9b51" class="">From intuition to data.</p><iframe src="https://giphy.com/embed/lnlAifQdenMxW" width="480" height="274" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/football-night-fantasy-lnlAifQdenMxW"></a></p><p id="546fe461-ff60-4724-a925-eefb443b2577" class="">To bring processes in place takes long time. It has to be slow. If has to be step by step. If it&#x27;s fast, you may get extreme opposition. You have to convince many people. There is a struggle involved. Vision is important otherwise you lose focus. </p></div></article></body></html>
